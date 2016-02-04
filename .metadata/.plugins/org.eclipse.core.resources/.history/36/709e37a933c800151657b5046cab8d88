@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+class testPass{
+	
+	public int n = 0;
+	public String[] inputTest(){
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		int i=0;
+		String[] aryS = new String[n];
+		//System.out.print(""+n);
+		while(i<n){
+			aryS[i] = sc.next();
+			i++;
+		}
+		sc.close();
+		return aryS;
+	}
+	public String judgeTest(String str){
+		int i = 0;
+		try{
+		while(i<str.length()){
+			if(str.charAt(i)!='P'
+					&&str.charAt(i)!='A'
+					&&str.charAt(i)!='T'){
+				return "NO";
+			}
+			else if(str.charAt(i)=='P'){
+				if(str.charAt(i+1)=='A'){
+					if(str.charAt(i+2)=='T'){
+					return "YES";
+					}
+					else if(str.charAt(i+2)=='A'&&str.charAt(i+3)=='T'){
+						return "YES";
+					}
+					else return "NO";
+				}
+			}
+			i++;
+		}
+		return "NO";
+	}
+		catch(IndexOutOfBoundsException ex){
+			return "NO";
+		}
+		}
+}
+
+public class Main {
+	public static void main(String[] args) {
+		testPass tp = new testPass();
+		int i = 0;
+		String[] str = tp.inputTest();
+		while(i<tp.n){
+		System.out.println(tp.judgeTest(str[i]));
+		i++;
+		}
+	}
+}

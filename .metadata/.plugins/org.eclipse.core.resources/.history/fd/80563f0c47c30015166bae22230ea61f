@@ -1,0 +1,72 @@
+import java.util.*;
+import javax.swing.*;
+
+
+
+public class Hello {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Runnable ft = new flashtext();
+		Runnable printA = new PrintChar('a',100);
+		Runnable printB = new PrintChar('b',100);
+		Runnable print1 = new PrintNum(100);
+		
+		Thread thread4 = new Thread(ft);
+		Thread thread1 = new Thread(printA);
+		Thread thread2 = new Thread(printB);
+		Thread thread3 = new Thread(print1);
+		
+		thread1.start();
+		thread2.start();
+		thread3.start();
+		thread4.start();
+	}
+}
+
+
+class PrintChar implements Runnable{
+	private char charToPrint;
+	private int times;
+	public PrintChar(char c,int t){
+		charToPrint = c;
+		times = t;
+	}
+	public void run(){
+		for(int i=0;i<times;i++){
+			System.out.print(charToPrint);
+		}
+	}
+}
+
+class PrintNum implements Runnable{
+	private int Num;
+	public PrintNum(int n){
+		Num = n;
+	}
+	public void run(){
+		for(int i = 1;i<Num;i++){
+			System.out.print(""+i);
+		}
+	}
+}
+
+class flashtext extends JApplet implements Runnable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel jt = new JLabel("welcome",JLabel.CENTER);
+	public flashtext(){
+		add(jt);
+	}
+	public void run(){
+			while(true){
+				if(jt.getText()==null)
+					jt.setText("welcome");
+				else
+					jt.setText(null);
+				
+				//Thread.sleep(200);
+			}
+		}
+}

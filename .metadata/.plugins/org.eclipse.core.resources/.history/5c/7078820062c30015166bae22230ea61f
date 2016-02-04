@@ -1,0 +1,15 @@
+import java.util.*;
+import javax.swing.*;
+
+
+
+public class Hello {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s= "Java";
+		String s2 = new String("Java");
+		String s3 = "Java";
+		System.out.println("s == s2 is"+(s==s2));
+		System.out.println("s == s3 is"+(s==s3));
+	}
+}

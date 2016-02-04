@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+class outNum{
+	public int num = 0;
+	public void outB(int n){
+		int count = 0;
+		count = n/100;
+		while(count != 0){
+			System.out.print("B");
+			count--;
+		}
+	}
+	public void outS(int n){
+		int count = 0;
+		count = n/10;
+		while(count != 0){
+			System.out.print("S");
+			count--;
+		}
+	}
+}
+
+public class Main {
+	public static void main(String[] args){
+		outNum oN = new outNum();
+		Scanner sc = new Scanner(System.in);
+		oN.num = sc.nextInt();
+		oN.outB(oN.num);
+		oN.outS(oN.num);
+	}
+}

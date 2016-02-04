@@ -1,0 +1,23 @@
+import java.util.*;
+import javax.swing.*;
+
+
+
+public class Hello {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner(System.in);
+		System.out.print("TOW INTEGERS");
+		int number1 = input.nextInt();
+		int number2 = input.nextInt();
+		try{
+			if(number2 == 0)
+				throw new ArithmeticException("Divisor cannot be zero");
+			System.out.println(number1/number2);
+		}
+			catch(ArithmeticException ex){
+				System.out.println("Exception");
+			}
+		System.out.println("Error");
+	}
+}
