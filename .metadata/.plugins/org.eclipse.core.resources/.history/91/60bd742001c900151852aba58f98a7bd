@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+class pNumber{
+	public int pn = 0;
+	public void inputN(){
+		Scanner sc = new Scanner(System.in);
+		pn = sc.nextInt();
+	}
+	public void findPN(){
+		int i = 2;
+		int count = 1;
+		int[] aryN = new int[this.pn];
+		aryN[0] = 1;
+		while(i<this.pn){
+			for(int x=2;x<=i;x++){
+				if(i%x==0&&i!=x) break;
+				else if(x==i){
+					aryN[count] = i;
+					count++;
+				} 
+			}
+			i++;
+		}
+		for(int x=0;x<count;x++)
+			System.out.print(" "+aryN[x]);
+	}
+}
+public class Main {
+	public static void main(String[] args){
+		pNumber pN = new pNumber();
+		pN.inputN();
+		pN.findPN();
+	}
+}

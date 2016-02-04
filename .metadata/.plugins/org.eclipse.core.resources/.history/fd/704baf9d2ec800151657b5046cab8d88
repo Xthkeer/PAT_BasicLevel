@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+class testPass{
+	
+	
+	public void inputTest(){
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int i=0;
+		String[] aryS = new String[n];
+		//System.out.print(""+n);
+		while(i<n&&sc.hasNext()){
+			aryS[i] = sc.next();
+			i++;
+		}
+		System.out.println(aryS[2]);
+	}
+}
+
+public class Main {
+	public static void main(String[] args) {
+		testPass tp = new testPass();
+		tp.inputTest();
+	}
+}

@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+class Write{
+	public String[] table = {"ling","yi","er"
+			,"san","si","wu","liu","qi","ba"
+			,"jiu"};
+	public int nSum = 0;
+	public String c;
+	public int sum(){
+		Scanner sc = new Scanner(System.in);
+		c = sc.nextLine();
+		int n = 0;
+		while(n<c.length()){
+			nSum += c.charAt(n)-48;
+			n++;
+		}
+		return nSum;
+	};
+	public String nOut(int num){
+		String sNum = ""+num;
+		int n = 0;
+		while(n<sNum.length()){
+			System.out.print(table[sNum.charAt(n)-48]+' ');
+			n++;
+		}
+		return "0";
+		
+	}
+}
+public class Main {
+	public static void main(String[] args) {
+		Write wt = new Write();
+		wt.nOut(wt.sum());
+	}
+}

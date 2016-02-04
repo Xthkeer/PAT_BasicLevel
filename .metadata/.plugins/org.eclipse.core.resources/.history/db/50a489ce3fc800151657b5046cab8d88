@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+class Num{
+	public int[] num;
+	public boolean[] pull;
+	public int n = 0;
+	void inputNum(){
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		int i = 0;
+		while(i<n&&sc.hasNext()){
+			num[i] = sc.nextInt();
+			i++;
+		}
+		System.out.println(num[2]);
+	}
+}
+public class Main {
+	public static void main(String[] args){
+		Num num = new Num();
+		num.inputNum();
+	}
+}

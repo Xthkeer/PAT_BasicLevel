@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+class Student{
+	public int n = 0;
+	public String[] gard;
+	public String[] nameAndNum;
+	
+	public void inputStudent(){
+		int i = 0;
+		
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		String[] str = new String[n];
+		this.gard = new String[n];
+		this.nameAndNum = new String[n];
+		while(i<n){
+			str[i] = sc.nextLine();
+			i++;
+		}
+		System.out.print(str[0]);
+	}
+}
+
+public class Main {
+	 public static void main(String[] args){
+		 Student st = new Student();
+		 st.inputStudent();
+	 }
+}

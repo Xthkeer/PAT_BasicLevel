@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+class Student{
+	public int n = 0;
+	Student(){
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		sc.close();
+	}
+	
+	public void inputStudent(){
+		int i = 0;
+		Scanner sc = new Scanner(System.in);
+		System.out.print(""+n);
+	}
+}
+
+public class Main {
+	 public static void main(String[] args){
+		 Student st = new Student();
+	 }
+}

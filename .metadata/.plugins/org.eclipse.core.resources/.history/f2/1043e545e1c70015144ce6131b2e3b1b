@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+class Write{
+	public String[] table = {"ling","yi","er"
+			,"san","si","wu","liu","qi","ba"
+			,"jiu"};
+	public int num = 0;
+	public String c;
+	public int sum(){
+		Scanner sc = new Scanner(System.in);
+		c = sc.nextLine();
+		System.out.print(c.charAt(0));
+		return 0;
+	};
+}
+public class Main {
+	public static void main(String[] args) {
+		Write wt = new Write();
+		wt.sum();
+	}
+}

@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+class Num{
+	public int[] num;
+	public boolean[] pull;
+	public int n = 0;
+	public void inputNum(){
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		num = new int[n];
+		pull = new boolean[n];
+		int i = 0;
+		while(i<n&&sc.hasNextInt()){
+			
+			num[i] = sc.nextInt();
+			pull[i] = true;
+			i++;
+		}
+	}
+	public int process(int numx){
+	    if(numx==1){
+	      return 0;
+	    }
+	    else if(numx%2==0){
+	      for(int i=0;i<num.length;i++){
+	    	  if(numx/2 == num[i]) pull[i] = false; 
+	      }
+	      return process(numx/2);
+	    }
+	    else {
+	      for(int i=0;i<num.length;i++){
+	    	if((3*numx+1)/2 == num[i]) pull[i] = false;
+	      }
+	      return process((3*numx+1)/2);
+	    }
+	}
+	public void outNum(){
+		int[] temp = new int[100];
+		int max = 0;
+		for(int i=0;i<num.length;i++){
+			if(pull[i]){
+				
+				System.out.print(num[i]);
+			}
+		}
+	}
+}
+public class Main {
+	public static void main(String[] args){
+		Num nx = new Num();
+		nx.inputNum();
+		for(int i = 0;i<nx.num.length;i++){
+			nx.process(nx.num[i]);
+		}
+		nx.outNum();
+		
+	}
+}
