@@ -9,10 +9,10 @@ class rightM{
 		n = sc.nextInt();
 		aryN = new int[n];
 		step = sc.nextInt();
-		for(int i=step;i<n;i++){
+		for(int i=step%n;i<n;i++){
 			aryN[i] = sc.nextInt();
 		}
-		for(int i=0;i<step;i++){
+		for(int i=0;i<step%n;i++){
 			aryN[i] = sc.nextInt();
 		}
 		for(int i=0;i<n;i++){

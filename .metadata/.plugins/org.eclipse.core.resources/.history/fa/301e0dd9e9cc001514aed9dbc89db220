@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+class pNumber{
+	public int pn = 0;
+	public int[] aryN;
+	public boolean[] aryB;
+	public void inputN(){
+		Scanner sc = new Scanner(System.in);
+		pn = sc.nextInt();
+	}
+	public void findPN(){
+		int i = 2;
+		int count = 1;
+		aryN = new int[this.pn];
+		aryN[0] = 1;
+		while(i<this.pn){
+			for(int x=2;x<=i;x++){
+				if(x<=i/2){
+					if(i%x==0&&i!=x) break;
+				}
+				if(x>i/2){
+					aryN[count++] = i;
+					x = i;
+				}   
+			}
+			i++;
+		}
+	}
+	public void findPN2(){
+		aryN = new int[pn];
+		aryB = new boolean[pn];
+		int j = 2;
+		for(int i=0;i<pn;i++){
+			aryB[i] = true;
+		}
+		while(j<pn&&aryB[j]){
+			for(int x=2;x<j;x++){
+				if(j%x==0&&x!=j)
+					aryB[j] = false;
+				}
+			if(aryB[j]){
+				for(int v=2;v<pn;v++){
+					aryB[j*v] = false;
+				}
+			}
+			j++;	
+		}
+		
+		
+		for(int c=1;c<pn&&aryB[c];c++){
+			System.out.print(""+c);
+		}
+	}
+	public int findtwo(){
+		int cntx = 0;
+		for(int i=0;i<this.aryN.length-1;i++){
+			if(this.aryN[i+1]-this.aryN[i]==2) cntx++;
+		}
+		return cntx;
+	}
+}
+public class Main {
+	public static void main(String[] args){
+		long start = 0;
+		long end = 0;
+		pNumber pN = new pNumber();
+		pN.inputN();
+		
+		pN.findPN2();
+		start = System.nanoTime();
+		
+		System.out.println(""+pN.findtwo());
+		end = System.nanoTime();
+		System.out.println(""+(end-start)/10000);
+	}
+}

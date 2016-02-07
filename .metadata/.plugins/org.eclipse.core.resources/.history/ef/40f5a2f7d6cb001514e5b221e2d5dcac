@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class pNumber{
+	public int pn = 0;
+	public int[] aryN;
+	public void inputN(){
+		Scanner sc = new Scanner(System.in);
+		pn = sc.nextInt();
+	}
+	public void findPN(){
+		int i = 2;
+		int count = 1;
+		aryN = new int[this.pn];
+		aryN[0] = 1;
+		while(i<this.pn){
+			for(int x=2;x<=i;x++){
+				if(i%x==0&&i!=x) break;
+				else if(x==i){
+					aryN[count] = i;
+					count++;
+				}   
+			}
+			i++;
+		}
+	}
+	public int findtwo(){
+		int cntx = 0;
+		for(int i=0;i<this.aryN.length-1;i++){
+			if(this.aryN[i+1]-this.aryN[i]==2) cntx++;
+		}
+		return cntx;
+	}
+}
+public class Main {
+	public static void main(String[] args){
+		long start = 0;
+		long end = 0;
+		pNumber pN = new pNumber();
+		pN.inputN();
+		start = System.nanoTime();
+		pN.findPN();
+		System.out.println(""+pN.findtwo());
+		end = System.nanoTime();
+		System.out.print(""+(end-start));
+	}
+}
